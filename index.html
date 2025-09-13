@@ -5,53 +5,144 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOVIE STREAM - Big Buck Bunny</title>
 <link href="https://vjs.zencdn.net/7.22.1/video-js.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 <style>
 body{margin:0;font-family:Roboto,sans-serif;background:#F9F9F9;color:#0F0F0F;}
-.video-container{max-width:900px;margin:20px auto;}
+header{background:#fff;padding:10px 20px;position:sticky;top:0;z-index:1000;border-bottom:1px solid #E0E0E0;}
+.logo{font-family:Oswald,sans-serif;color:#FF0000;font-size:28px;text-decoration:none;font-weight:700;}
+.page-wrapper{display:flex;justify-content:center;align-items:flex-start;gap:20px;max-width:1400px;margin:20px auto;padding:0 10px;}
+.video-container{flex:0 0 780px;display:flex;flex-direction:column;}
+.video-container video{width:100%;height:auto;}
+.video-info{margin-top:15px;}
+.video-info h1{font-size:26px;margin-bottom:12px;line-height:1.4;font-weight:700;}
+.channel-section{display:flex;align-items:center;margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid #E0E0E0;}
+.channel-avatar{width:48px;height:48px;border-radius:50%;background:#E5E5E5;margin-right:12px;display:flex;justify-content:center;align-items:center;font-size:22px;color:#606060;}
+.channel-details{display:flex;flex-direction:column;flex-grow:1;}
+.channel-name{font-weight:500;font-size:17px;margin-bottom:2px;}
+.channel-subscribers{font-size:14px;color:#606060;}
+.subscribe-btn{background:#FF0000;color:#fff;padding:10px 20px;border:none;border-radius:20px;cursor:pointer;font-weight:500;text-transform:uppercase;font-size:14px;}
+.subscribe-btn:hover{background:#CC0000;}
+.video-actions-stats{display:flex;justify-content:space-between;align-items:center;margin-top:10px;flex-wrap:wrap;gap:15px;}
+.video-stats-left{display:flex;align-items:center;gap:10px;font-size:14px;color:#606060;}
+.video-action-buttons{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;}
+.action-button{background:#E5E5E5;color:#0F0F0F;padding:8px 12px;border:none;border-radius:20px;cursor:pointer;font-size:14px;font-weight:500;display:flex;align-items:center;gap:6px;}
+.action-button:hover{background:#D7D7D7;}
+.video-description{margin-top:20px;line-height:1.7;font-size:15px;color:#0F0F0F;background:#F0F0F0;padding:15px;border-radius:6px;}
+.ad-right-container{display:flex;flex-direction:column;gap:20px;flex:0 0 350px;height:auto;}
+.ad-right-container ins{flex:1;display:block;}
+.sidebar{width:100%;margin-top:20px;}
+.sidebar-item{display:flex;align-items:flex-start;gap:10px;text-decoration:none;color:inherit;transition:background-color 0.2s ease;padding:8px;border-radius:4px;}
+.sidebar-item:hover{background:rgba(0,0,0,0.05);}
+.sidebar-thumbnail{width:168px;height:94px;object-fit:cover;border-radius:4px;}
+.sidebar-info{display:flex;flex-direction:column;flex-grow:1;}
+.sidebar-title{font-size:15px;font-weight:500;line-height:1.4;max-height:44px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.sidebar-channel,.sidebar-meta{font-size:13px;color:#606060;margin-top:4px;}
+.sidebar-meta span + span::before{content:"•";margin:0 5px;}
+@media(max-width:1024px){
+  .page-wrapper{flex-direction:column;align-items:center;}
+  .ad-right-container{flex-direction:row;gap:10px;height:auto;}
+  .ad-right-container ins{flex:1;}
+  .video-container{width:100%;}
+}
 </style>
 </head>
 <body>
 
-<div class="video-container">
-  <video
-    id="my-video"
-    class="video-js vjs-default-skin"
-    controls
-    preload="auto"
-    muted
-    width="100%"
-    height="500"
-    data-setup='{}'>
-    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-  </video>
+<header><a href="/" class="logo">MOVIE<span>STREAM</span></a></header>
+
+<div class="page-wrapper">
+  <!-- Video -->
+  <div class="video-container">
+    <video id="my-video" class="video-js vjs-default-skin" controls muted preload="auto" autoplay data-setup='{}'>
+      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"/>
+    </video>
+
+    <div class="video-info">
+      <h1>Big Buck Bunny Full Movie HD</h1>
+      <div class="channel-section">
+        <div class="channel-avatar">M</div>
+        <div class="channel-details">
+          <span class="channel-name">MOVIE STREAM</span>
+          <span class="channel-subscribers">1.5M subscribers</span>
+        </div>
+        <button class="subscribe-btn">SUBSCRIBE</button>
+      </div>
+      <div class="video-actions-stats">
+        <div class="video-stats-left">
+          <span>5,234,567 views</span>
+          <span>Uploaded 1 week ago</span>
+        </div>
+        <div class="video-action-buttons">
+          <button class="action-button"><i class="fa-solid fa-thumbs-up"></i> Like</button>
+          <button class="action-button"><i class="fa-solid fa-share"></i> Share</button>
+          <a class="action-button" href="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" download>
+            <i class="fa-solid fa-download"></i> Download
+          </a>
+          <button class="action-button"><i class="fa-solid fa-scissors"></i> Clip</button>
+        </div>
+      </div>
+      <p class="video-description">Watch Big Buck Bunny in full HD quality. Enjoy this fun animated short about a big bunny and his adventures.</p>
+    </div>
+  </div>
+
+  <!-- Banner kanan atas & bawah -->
+  <div class="ad-right-container">
+    <ins class="eas6a97888e2" data-zoneid="5721898"></ins>
+    <ins class="eas6a97888e2" data-zoneid="5721898"></ins>
+    <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+    <script>(AdProvider = window.AdProvider || []).push({"serve": {}});</script>
+  </div>
 </div>
+
+<!-- Sidebar rekomendasi -->
+<div class="sidebar" id="sidebar-recommendations"></div>
 
 <script src="https://vjs.zencdn.net/7.22.1/video.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/videojs-ima@1.10.0/dist/videojs.ima.min.js"></script>
-
 <script>
+// Video.js + IMA
 var player = videojs('my-video');
-
-// IMA setup
 player.ima({
-  id: 'my-video',
-  adTagUrl: 'https://s.magsrv.com/v1/vast.php?idzone=5720072',
-  debug: true
+  id:'my-video',
+  adTagUrl:'https://s.magsrv.com/v1/vast.php?idzone=5720072',
+  debug:true
 });
-
-player.ready(function() {
+player.ready(function(){
   player.ima.requestAds();
   player.play();
-
-  // Mid-roll setelah 1 menit (60 detik)
-  player.on('timeupdate', function() {
-    if(player.currentTime() >= 60 && !player.midrollPlayed){
-      player.midrollPlayed = true;
-      // Request ads lagi untuk mid-roll
+  player.midrollTimes=[60,120,180]; // midroll tiap 60s
+  player.currentMid=0;
+  player.on('timeupdate', function(){
+    if(player.currentMid<player.midrollTimes.length && player.currentTime()>=player.midrollTimes[player.currentMid]){
+      player.currentMid++;
       player.ima.requestAds();
     }
   });
 });
+
+// Sidebar recommendations
+const recommendedVideos=[
+  {title:"Spider-Man: No Way Home", channel:"Film Zone", views:"8.7M views", time:"1 month ago", thumbnail:"https://i.ytimg.com/vi/JfVOs4VSpmA/hqdefault.jpg"},
+  {title:"The Batman 2022", channel:"Cinema World", views:"3.9M views", time:"3 days ago", thumbnail:"https://i.ytimg.com/vi/mqqft2x_Aa4/hqdefault.jpg"},
+  {title:"Dune 2021", channel:"Sci-Fi Movies", views:"4.5M views", time:"1 week ago", thumbnail:"https://i.ytimg.com/vi/n9xhJrPXop4/hqdefault.jpg"}
+];
+function loadRecommendedVideos(){
+  const sidebar=document.getElementById('sidebar-recommendations');
+  recommendedVideos.forEach(video=>{
+    const videoElement=document.createElement('a');
+    videoElement.className='sidebar-item';
+    videoElement.href='#';
+    videoElement.innerHTML=`
+      <img src="${video.thumbnail}" class="sidebar-thumbnail" alt="${video.title}">
+      <div class="sidebar-info">
+        <h3 class="sidebar-title">${video.title}</h3>
+        <span class="sidebar-channel">${video.channel}</span>
+        <span class="sidebar-meta"><span>${video.views}</span><span>${video.time}</span></span>
+      </div>`;
+    sidebar.appendChild(videoElement);
+  });
+}
+window.onload=loadRecommendedVideos;
 </script>
 
 </body>
